@@ -1,0 +1,50 @@
+.carouselBox {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    width: 400px !important;
+    display: block !important;
+
+    .box {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+.active {
+    height: 400px;
+  }
+  .active .box {
+    position: absolute;
+    top: 0px;
+    display: none;
+  }
+  .active .box.current {
+    display: block;
+  }
+
+  .active .buttons {
+    padding: 2%;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .carouselbox button {
+    border: none;
+    display: none;
+  }
+  .active button {
+    display: block;
+  } 
+  .prev {
+      position: absolute;
+      bottom: 50%;
+      left: 5px;
+  }
+  .next {
+    position: absolute;
+    bottom: 50%;
+    right: 5px;
+}

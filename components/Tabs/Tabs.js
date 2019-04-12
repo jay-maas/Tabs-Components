@@ -66,6 +66,8 @@ links = document.querySelectorAll(".tabs-link").forEach( tabLink => new TabLink(
 
 //dan's way!?
 
+
+
 class Tablink {
   constructor(tabNav, link) {
     this.link = link
@@ -90,8 +92,9 @@ class TabContent {
   reset() {
     const shown = this.tabNav.querySelector('.tabs-item.tabs-item-selected')
     if (shown) shown.classList.toggle('tabs-item-selected')
-    const shownLink = this.tabNav.querySelector('')
-  }
+    const shownLink = this.tabNav.querySelector('.tabs-link.tabs-link-selected')
+    if (shown) shownLink.classList.toggle('tabs-link-selected')
+}
 }
 
 const navigators = document.querySelectorAll('.tabs')
@@ -100,9 +103,7 @@ navigators.forEach(tabNav => {
   links.forEach(link => {
     new Tablink(tabNav, link)
   })
-
 })
-
 
 
 

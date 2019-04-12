@@ -1,4 +1,4 @@
-
+/*
 class TabLink {
   constructor(element) {
     // Assign this.element to the passed in DOM element
@@ -58,6 +58,98 @@ class TabItem {
 
 - In your .forEach() method's callback function, return a new instance of TabLink and pass in each link as a parameter
 
-*/
+
 
 links = document.querySelectorAll(".tabs-link").forEach( tabLink => new TabLink(tabLink));
+*/
+
+
+//dan's way!?
+
+class Tablink {
+  constructor(tabNav, link) {
+    this.link = link
+    this.tabContent = new TabContent(tabNav, this.link.dataset.tab, this.link)
+    this.link.addEventListener('click', ()=> {
+      this.tabContent.toggle()
+    })
+  }
+}
+
+class TabContent {
+  constructor(tabNav, contentTabId, link) {
+    this.content = tabNav.querySelector(`.tabs-item[data-tab="${contentTabId}"]`)
+    this.tabNav = tabNav
+    this.link = link
+  }
+  toggle() {
+    this.reset()
+    this.content.classList.toggle('tabs-item-selected')
+    this.link.classList.toggle('tabs-link-selected')
+  }
+  reset() {
+    const shown = this.tabNav.querySelector('.tabs-item.tabs-item-selected')
+    if (shown) shown.classList.toggle('tabs-item-selected')
+    const shownLink = this.tabNav.querySelector('')
+  }
+}
+
+const navigators = document.querySelectorAll('.tabs')
+navigators.forEach(tabNav => {
+  const links = tabNav.querySelectorAll('.tabs-link')
+  links.forEach(link => {
+    new Tablink(tabNav, link)
+  })
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
